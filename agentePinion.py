@@ -1,10 +1,13 @@
+# Agente Piñon
 # Creador: Bryan Alfredo Solórzano Montero
+#          Anthony Mauricio Goyes Díaz           
 
-# Planteamiento: Se trata de un tipo de agente capaz de determinar el lso cambios correctos de los piñones en las bicicletas para facilitarle a los principiante ese proceso de adaptación
+# Planteamiento:  Agente autónomo capaz de determinar los cambios necesarios de los piñones
+#  en las bicicletas, facilitando a los principiante ese proceso de adaptación
 
 # Librerias necesarias
-import time
-import random
+import time  # Módulo para manejar tareas relacionadas con el tiempo
+import random # Módulo que puede generar números aleatorios. 
 
 '''
 El agente sera capaz de detectar 7 tipo de procentalidad para inclinación
