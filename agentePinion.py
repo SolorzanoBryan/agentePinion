@@ -70,7 +70,7 @@ def logica_absoluta():
         print(plato)
         # Estas tres líneas son necesarias para ir registrando los estados de los pinñones, platos y datos de las vertices en cada tramo
         registrar_pinion.append(pinion.copy())
-        registrar_plato.append(plato.copy)
+        registrar_plato.append(plato.copy())
         distancias_verticales.append(vertical)
         # Se procede con el proceso de validación para mostrar la ifnromación necesario al usuario
         if dificultad == 1:
