@@ -123,6 +123,9 @@ def logica_absoluta():
         time.sleep(3)
 
     distancias_verticales = []
+    contar = 0
+    pasado_pin = 0
+    pasado_pla = 0
     for num in range(0, repeticiones):
         '''
         Variables locales
@@ -140,15 +143,18 @@ def logica_absoluta():
         '''
         vertical = verticalRandom()
         porcentaje_inclinacion = round((vertical/distancia_horizontal) * 100)
-        
         resultado_comparatoria = resolver(porcentaje_inclinacion)
         pin = resultado_comparatoria.get('pinion')
         pla = resultado_comparatoria.get('plato')
         dificultad = resultado_comparatoria.get('dificultad')
-        print(pin, pla, dificultad)
+        # print(pin, pla, dificultad)
         cambios(pin, pla)
-        print(pinion)
-        print(plato)
+        if not pasado_pin == pin:
+            contar = contar + 1
+        if not pasado_pla == pla:
+            contar = contar + 1
+        pasado_pin = pin
+        pasado_pla = pla
         # Estas tres líneas son necesarias para ir registrando los estados de los pinñones, platos y datos de las vertices en cada tramo
         registrar_pinion.append(pinion.copy())
         registrar_plato.append(plato.copy())
@@ -167,8 +173,8 @@ def logica_absoluta():
             print('Este proceso no representa mucho esfuerzo para las personas en general.')
             print('-------------------------------------------------------------------------------------------------\n')
 
-        time.sleep(4) # Pausa la ejecución durante cuatro segundos simulando un recorrido hecho
-    return {'distancia_horizontal': distancia_horizontal, 'distancias_verticales': distancias_verticales, 'repeticiones': repeticiones}
+        time.sleep(4) # Un tiempo de cuatro segundos simulando un recorrido hecho
+    return {'distancia_horizontal': distancia_horizontal, 'distancias_verticales': distancias_verticales, 'repeticiones': repeticiones, 'contados': contar}
 
 def verticalRandom():
     '''
@@ -201,11 +207,13 @@ def cambios(pin_entrada, plato_entrada):
     plato_entrada: cadena de texto
         Representa, en letras, el plato al cual se tamara en cuenta para el cambio.
     '''
+
     for pin in pinion:
         if pin == pin_entrada:
             pinion[pin] = 1
         else:
             pinion[pin] = 0
+
     for pla in plato:
         if pla == plato_entrada:
             plato[pla] = 1
@@ -258,7 +266,9 @@ def resolver(porcentaje_inclinacion):
 resultado = logica_absoluta() # Unica llamada al proceso completo
 metros = resultado['distancia_horizontal']
 recorrido = resultado['distancias_verticales']
+contados = resultado['contados']
 total = metros * len(recorrido)
+print(f'Total de contados: {contados}')
 print(f'Usted a recorrido un total de {total} metros y se pudo completar las sigueintes metricas')
 print('En los piñones tenemos: ')
 for pin in registrar_pinion:
@@ -267,6 +277,3 @@ print('En los platos tenemos: ')
 for pla in registrar_plato:
     print(pla)
 # {'distancia_horizontal': distancia_horizontal, 'distancias_verticales': distancias_verticales, 'repeticiones': repeticiones}
-
-
-
