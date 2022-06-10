@@ -6,18 +6,30 @@
 #  en las bicicletas, facilitando a los principiante ese proceso de adaptación
 
 # Librerias necesarias
-import time  # Módulo para manejar tareas relacionadas con el tiempo
-import random # Módulo que puede generar números aleatorios. 
+import time  # Importa el módulo para manejar tareas relacionadas con el tiempo
+import random # Importa el módulo que puede generar números aleatorios. 
 
 '''
+Agente
+------
 El agente sera capaz de detectar 7 tipo de procentalidad para inclinación
+
 Varaibles Globales
 ------------------
-    pinion: un diccionario que tiene como clave una enumeración represetnado el numero de piñones, sus valores son 0
-    plato: un diccionario que tiene ocmo clave una enumeración representando la cantidad de platos
-    registrar_pinion: Arregloq eu guardara el diccionario pinion en cada proceso de la función logica_absoluta
-    registrar_plato: Arregloq eu guardara el diccionario plato en cada proceso de la función logica_absoluta
+    pinion: diccionario 
+        Una colección de datos de tipo diccionario.  Tiene como clave una enumeración representando el numero de piñones; sus valores son 0
+    plato: diccionario
+        Una colección de datos de tipo diccionario. Tiene ocmo clave una enumeración representando la cantidad de platos
+    registrar_pinion: Lista
+        Una colección de datos de tipo lista. Almacena el diccionario pinion en cada proceso de la función logica_absoluta
+    registrar_plato: Lista
+        Una colección de datos de tipo lista. Almacena el diccionario plato en cada proceso de la función logica_absoluta
     
+Funciones
+-------
+    logica_absoluta:
+        Implementa toda la logica para determinar si el proceso se va d esarrollar en un ambiente de dicultad o no.
+        Ademas, aquí hace el llamado a mas funciones.
 '''
 
 pinion = {'uno': 0, 'dos': 0, 'tres': 0, 'cuatro': 0, 'cinco': 0, 'seis': 0, 'siete': 0}
@@ -37,18 +49,33 @@ def logica_absoluta():
     Implementa toda la logica para determinar si el proceso se va d esarrollar en un ambiente de dicultad o no
     Ademas, aquí hace el llamado a mas funciones.
 
-    variables 
+    Variables 
     ---------
-        distancia_horizontal (float): Valro dado en metros por el usuario que decidira cada cuanto tiempo quiere que se hagan los cambios y analicis del ambiente  
-        repeticiones (int): El usuario dira cuantos tramos de distancia_horizontal podria considerar en su ruta
-        distancias_verticales (lista): Almacenara todas los metros radom dadas por la función verticalRandom 
+        distancia_horizontal: decimales
+            Valor dado en metros por el usuario que decidira cada cuanto tiempo quiere que se hagan los cambios y análisis del ambiente  
+        repeticiones: entero
+            El usuario asignará cuantos tramos de distancia_horizontal podria considerar en su ruta
+        distancias_verticales: lista
+            Almacenara todas los metros generados de manera aleatoria dadas por la función verticalRandom 
     
     retorna
         Un diccionario de la distancia horizontal, vertical y el numero de repeticiones de cada tramo 
 
     '''
-    distancia_horizontal = float(input("Introduzca cada cuantos metros desea que se haga el escaneo del ambiente para poder hacer los cambios a los piñones: ") )
-    repeticiones = int(input(f"Introduzca la cantidad de repeticiones de {distancia_horizontal} metros") )
+    while(True):
+        try:
+            distancia_horizontal = float(input("Introduzca cada cuantos metros desea que se haga el escaneo del ambiente para poder hacer los cambios a los piñones: ") )
+            try:
+                repeticiones = int(input(f"Introduzca la cantidad de repeticiones de {distancia_horizontal} metros: "))
+            except ValueError:
+                print("¡Vaya! El dato ingresado no es el esperado. Se esperaba un número entero. Intente de nuevo...")
+        except ValueError:
+                print("¡Vaya! El dato ingresado no es el esperado. Se esperaba un número decimal. Intente de nuevo...")
+        except:
+            print("¡Vaya! Ha ocurrido un error inesperado.  Intente de nuevo...")
+        finally:
+            break
+
     distancias_verticales = []
     for num in range(0, repeticiones):
         '''
