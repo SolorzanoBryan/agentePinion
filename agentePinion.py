@@ -6,6 +6,7 @@
 #  en las bicicletas, facilitando a los principiante ese proceso de adaptación
 
 # Librerias necesarias
+import unittest
 from ctypes import FormatError # Importa el módulo que provee compatibilidad con tipos de dato C
 from os import system # Importa el módulo que provee una función para  interactuar con el sistema.
 import sys # Importa el módulo para manejar exepciones personalizadas 
@@ -224,7 +225,7 @@ def resolver(porcentaje_inclinacion):
     '''
     Descripción
     -----------
-    Genera un diccionario con los las claves y valores de los piñones y platos respectivamente.
+    Genera un diccionario con los las claves y valores de los piñones y platos respectivamente. Determina que piñón o plato debe ser cambiado
 
     Atributos
     ---------
@@ -263,17 +264,22 @@ def resolver(porcentaje_inclinacion):
                         return {"pinion": "siete", "plato": "uno", "dificultad": 1}
 
 
-resultado = logica_absoluta() # Unica llamada al proceso completo
-metros = resultado['distancia_horizontal']
-recorrido = resultado['distancias_verticales']
-contados = resultado['contados']
-total = metros * len(recorrido)
-print(f'Total de contados: {contados}')
-print(f'Usted a recorrido un total de {total} metros y se pudo completar las sigueintes metricas')
-print('En los piñones tenemos: ')
-for pin in registrar_pinion:
-    print(pin)
-print('En los platos tenemos: ')
-for pla in registrar_plato:
-    print(pla)
+# resultado = logica_absoluta() # Unica llamada al proceso completo
+# metros = resultado['distancia_horizontal']
+# recorrido = resultado['distancias_verticales']
+# contados = resultado['contados']
+# total = metros * len(recorrido)
+# print(f'Total de contados: {contados}')
+# print(f'Usted a recorrido un total de {total} metros y se pudo completar las sigueintes metricas')
+# print('En los piñones tenemos: ')
+# for pin in registrar_pinion:
+#     print(pin)
+# print('En los platos tenemos: ')
+# for pla in registrar_plato:
+#     print(pla)
 # {'distancia_horizontal': distancia_horizontal, 'distancias_verticales': distancias_verticales, 'repeticiones': repeticiones}
+
+
+
+# ------------------------------------------------
+# Pruebas unitarias
