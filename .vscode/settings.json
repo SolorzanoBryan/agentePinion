@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./modulos"
+    ],
+    "python.formatting.provider": "black"
+}
