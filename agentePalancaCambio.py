@@ -291,7 +291,7 @@ if __name__ == "__main__":
         """)
 
     # Se muestra información puntal de lo que se espera del usuario
-    print('Nota: Los valores que ingresará a continuación tienen un límite superior de hasta 50 tanto para enteros como decimales')
+    print('Nota: Los valores que ingresará a continuación tienen un límite superior de hasta 500.00 para la distancia y 50 para las repeticiones')
     while(True):
         # Se capturan las excepciones para el tipo de dato ingresado y que no sea nulo
         try:
@@ -303,12 +303,12 @@ if __name__ == "__main__":
             print("¡Vaya! Se esperaba un número decimal. Intente de nuevo...")
         # if (distancia_horizontal<=50):
         else:
-            # Se evalúa si el valor ingresado es mayor a 50 
-            if(distancia_horizontal>50):
+            # Se evalúa si el valor ingresado es mayor a 500
+            if(distancia_horizontal>500):
                 # Se menciona al usuario que el valor ingresado excede el límite permitido
-                print('Límite permitido para la distancia horizontal: 50\nColocando el valor máximo permitido...')
+                print('Límite permitido para la distancia horizontal: 500\nColocando el valor máximo permitido...')
                 # Se reajusta a el valor máximo permitido
-                distancia_horizontal=50
+                distancia_horizontal=500
                 time.sleep(3)
             try:
                 # Se caputra la cantidad de repeticiones a evaluar
@@ -345,14 +345,14 @@ if __name__ == "__main__":
     # Se imprime el valor del costo
     print(f'Total del costo de acción: {contados}')
     # Se imprime el valor de las repeticiones
-    print(f'Usted a recorrido un total de {repeticiones} metros y se pudo completar las sigueintes metricas')
+    print(f'Usted a recorrido un total de {metros} metros en {repeticiones} repeticiones y se pudo completar las sigueintes metricas')
     print('En los piñones tenemos: ')
     # Se imprime los movimientos requeridos de los piñones
-    for pin in registrar_pinion:
+    for pin in agente.registrar_pinion:
         print(pin)
     print('En los platos tenemos: ')
     # Se imprime los movimientos requeridos de los platos
-    for pla in registrar_plato:
+    for pla in agente.registrar_plato:
         print(pla)
 
 
