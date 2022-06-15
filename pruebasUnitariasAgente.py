@@ -2,7 +2,6 @@
 # Importacion de librerias para prueba unitarias y las funciones y procedimientos de la clase agente
 # from agentePalancaCambio import cambios, resolver
 from agentePalancaCambio import palancaCambio
-from modulos import verticalRandom
 import  unittest 
 
 # Módulos para verificar el tipo de dato que se está validando
@@ -53,7 +52,7 @@ class prueba(unittest.TestCase):
         pass
 
     # Procedimeinto para realizar el test del agente
-    def test_AleatorioVerdadero(self):
+    def test_LatitudVerdadero(self):
         '''
         Descripción
         ----------
@@ -72,12 +71,12 @@ class prueba(unittest.TestCase):
         El análisis de la prueba concluye que los resultados por parámetros son equivalentes. 
         '''
         # Se almacena el resultado de la función a evaluar
-        resultado = verticalRandom()
+        resultado = self.agente.obtenerLatitud()
         # Se evalúa si el resultado obtenido es el esperado
         self.assertTrue(resultado, range(0,4))
 
     # Procedimeinto para realizar el test del agente
-    def test_AleatorioFalso(self):
+    def test_LatitudFalso(self):
         '''
         Descripción
         ----------
@@ -96,7 +95,7 @@ class prueba(unittest.TestCase):
         El análisis de la prueba concluye que los resultados por parámetros no son equivalentes. 
         '''
          # Se almacena el resultado de la función a evaluar
-        resultado = verticalRandom()
+        resultado = self.agente.obtenerLatitud()
         # Se evalúa si el resultado obtenido no es el esperado
         self.assertNotEqual(resultado , 5)
     # Procedimeinto para realizar el test del agente
