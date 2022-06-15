@@ -39,11 +39,11 @@ class prueba(unittest.TestCase):
         repeticiones = 0
         # Se inicializa una variable para el porcentaje de inclinación según la formula planteada
         porcentaje_inclinacion = 0
-         # Se inicializa una variable para el porcentaje de inclinación según la formula planteada
+        # Se inicializa una variable para el piñon anterior
         pasado_pin = 0
-         # Se inicializa una variable para el porcentaje de inclinación según la formula planteada
+        # Se inicializa una variable para el plato anterior
         pasado_pla = 0
-         # Se inicializa una variable para el porcentaje de inclinación según la formula planteada
+        # Se inicializa una variable para el porcentaje de inclinación según la formula planteada
         contar = 0
         # Se genera una variable que almacena el resultado de la función "resolver"
         self.agente = palancaCambio(pinion, plato, distancia_horizontal, distancias_verticales, repeticiones)
@@ -141,26 +141,26 @@ class prueba(unittest.TestCase):
         # Se evalúa si el resultado no es el esperado 
         self.assertNotEqual(self.resolver, {"pinion": "dos", "plato": "tres", "dificultad": 0})
 
-    def test_logicaVerdadero(self):
-        '''
-        Descripción
-        ----------
-        Procedimiento que permite evaluar el funcionamiento de la función "logica_total", la parte medular, en un escenario acertado. 
+    # def test_logicaVerdadero(self):
+    #     '''
+    #     Descripción
+    #     ----------
+    #     Procedimiento que permite evaluar el funcionamiento de la función "logica_total", la parte medular, en un escenario acertado. 
         
-        Parámetros
-        ---------
-        No aplica
+    #     Parámetros
+    #     ---------
+    #     No aplica
 
-        Atributos
-        ---------
-        No aplica
+    #     Atributos
+    #     ---------
+    #     No aplica
 
-        Retorna
-        -------
-        El análisis de la prueba concluye que los resultados por parámetros son equivalentes. 
-        '''  
-        # Se evalúa si el resultado es el esperado
-        self.assertEqual(self.logica, {'distancia_horizontal': Intnumber, 'distancias_verticales': List, 'repeticiones': Intnumber, 'contados': Intnumber})
+    #     Retorna
+    #     -------
+    #     El análisis de la prueba concluye que los resultados por parámetros son equivalentes. 
+    #     '''  
+    #     # Se evalúa si el resultado es el esperado
+    #     self.assertEqual(self.logica, {'distancia_horizontal': Intnumber, 'distancias_verticales': List, 'repeticiones': Intnumber, 'contados': Intnumber})
 
 # Se ejecuta el módulo de la clase
 if __name__ == "__main__":

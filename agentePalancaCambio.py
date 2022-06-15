@@ -230,7 +230,7 @@ class palancaCambio():
                             return {"pinion": "siete", "plato": "uno", "dificultad": 1}    
 
 
-    def obtenerLatitud():
+    def obtenerLatitud(self):
         '''
         Descripción
         ----------
